@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>Калькулятор Чакр SOFIYA</title>
+<style>
+  body { font-family: Arial; background: #fff; color: #333; padding: 20px; text-align: center; }
+  input { margin: 5px 0; padding: 5px; width: 200px; }
+  button { padding: 10px 20px; margin-top: 10px; background: #d4af37; color: white; border: none; cursor: pointer; }
+  h2 { color: #d4af37; margin-top: 20px; }
+  .chakra-circle { width: 60px; height: 60px; border-radius: 50%; line-height: 60px; color: white; font-weight: bold; margin: 10px auto; font-size: 16px; }
+  .m1 { background: #ff0000; } /* Муладхара */
+  .m2 { background: #ff7f00; } /* Свадхистана */
+  .m3 { background: #ffff00; color: #333; } /* Манипура */
+  .m4 { background: #00ff00; } /* Анахата */
+  .m5 { background: #0000ff; } /* Вишудха */
+  .m6 { background: #4b0082; } /* Аджна */
+  .m7 { background: #8b00ff; } /* Сахасрара */
+  .chakra-label { margin-bottom: 5px; font-weight: bold; }
+  .recommendation { font-size: 14px; margin-bottom: 15px; color: #555; }
+  #extra { border: 1px solid #d4af37; padding: 10px; margin-top: 15px; min-height: 100px; text-align: left; }
+</style>
+</head>
+<body>
+<h1>Расширенный Калькулятор Чакр SOFIYA</h1>
+
+Фамилия:<br /><input id="fam" /><br />
+Имя:<br /><input id="name" /><br />
+Отчество:<br /><input id="otc" /><br />
+День рождения:<br /><input id="day" type="number" /><br />
+Месяц рождения:<br /><input id="month" type="number" /><br />
+Год рождения:<br /><input id="year" type="number" /><br />
+
+<button onclick="calc()">Посчитать</button>
+
+<h2>Основные чакры</h2>
+<div id="res"></div>
+
+<h2>Дополнительные энергии и буквы</h2>
+<div id="extra"></div>
+
+<script>
+// Пифагор: перевод букв в числа (1-9)
+function letterToNum(l) {
+  const m = {
+    "АИСЪ": 1,
+    "БЙТЫ": 2,
+    "ВКУЬ": 3,
+    "ГЛФЭ": 4,
+    "ДМХЮ": 5,
+    "ЕНЦЯ": 6,
+    "ЁОЧ": 7,
+    "ЖПШ": 8,
+    "ЗРЩ": 9
+  };
+  for (let key in m) if (key.includes(l)) return m[key];
+  return 0;
+}
+
+// Сумма букв ФИО
+function nameSum(s) {
+  let t = 0;
+  for (let c of s) if (/[А-Яа-яЁё]/.test(c)) t += letterToNum(c.toUpperCase());
+  while (t > 22) t -= 22;
+  return t;
+}
+
+// С-расчет: умножение букв на множитель
+function sCalc(s, multiplier) {
+  let t = 0;
+  for (let i = 0; i < s.length; i++) if (/[А-Яа-яЁё]/.test(s[i])) t += letterToNum(s[i].toUpperCase()) * multiplier;
+  while (t > 22) t -= 22;
+  return t;
+}
+
+// Главная функция
+function calc() {
+  const f = document.getElementById("fam").value.trim(),
+        n = document.getElementById("name").value.trim(),
+        o = document.getElementById("otc").value.trim(),
+        d = parseInt(document.getElementById("day").value),
+        m = parseInt(document.getElementById("month").value),
+        y = parseInt(document.getElementById("year").value);
+
+  if(!f||!n||!o||!d||!m||!y){ alert("Заполните все поля!"); return; }
+
+  // Основные чакры
+  let c1 = nameSum(f);
+  let c2 = nameSum(n);
+  let c3 = nameSum(o);
+  let c4 = m;
+  let c5 = y.toString().split("").reduce((a,b)=>a+parseInt(b),0);
+  while(c5>22)c5-=22;
+  let c6 = d + c1 + c2 + c3;
+  while(c6>22)c6-=22;
+  let c7 = c1 + c2 + c3 + c4 + c5 + c6;
+  while(c7>22)c7-=22;
+
+  // С-расчет
+  let sc1 = sCalc(f,1);
+  let sc2 = sCalc(n,2);
+  let sc3 = sCalc(o,3);
+  let sc6 = d + sc1 + sc2 + sc3;
+  while(sc6>22) sc6-=22;
+
+  // Вывод основного тела
+  document.getElementById("res").innerHTML = `
+    <div class="chakra-circle m1">СКРЫТЫЙ ТАЛАНТ (1-я чакра): ${c1}</div>
+    <div class="chakra-circle m2">СКРЫТЫЙ ТАЛАНТ (2-я чакра): ${c2}</div>
+    <div class="chakra-circle m3">СКРЫТЫЙ ТАЛАНТ (3-я чакра): ${c3}</div>
+    <div class="chakra-circle m4">СКРЫТЫЙ ТАЛАНТ (4-я чакра): ${c4}</div>
+    <div class="chakra-circle m5">СКРЫТЫЙ ТАЛАНТ (5-я чакра): ${c5}</div>
+    <div class="chakra-circle m6">СКРЫТЫЙ ТАЛАНТ (6-я чакра): ${c6}</div>
+    <div class="chakra-circle m7">СКРЫТЫЙ ТАЛАНТ (7-я чакра): ${c7}</div>
+    <div class="chakra-circle m1">СКРЫТЫЙ ТАЛАНТ (С-расчет 1): ${sc1}</div>
+    <div class="chakra-circle m2">СКРЫТЫЙ ТАЛАНТ (С-расчет 2): ${sc2}</div>
+    <div class="chakra-circle m3">СКРЫТЫЙ ТАЛАНТ (С-расчет 3): ${sc3}</div>
+    <div class="chakra-circle m4">СКРЫТЫЙ ТАЛАНТ (С-расчет 6): ${sc6}</div>
+  `;
+
+  // Дополнительные энергии и буквы
+  document.getElementById("extra").innerHTML = `
+    <b>Фамилия:</b> ${f} → ${c1}<br/>
+    <b>Имя:</b> ${n} → ${c2}<br/>
+    <b>Отчество:</b> ${o} → ${c3}<br/>
+    <b>С-расчет фамилии:</b> ${sc1}<br/>
+    <b>С-расчет имени:</b> ${sc2}<br/>
+    <b>С-расчет отчества:</b> ${sc3}<br/>
+    <b>С-расчет 6-я чакра:</b> ${sc6}
+  `;
+}
+</script>
+</body>
+</html>
