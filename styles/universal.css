@@ -1,0 +1,94 @@
+/* Universal styles that work in all browsers */
+
+:root {
+  --primary: #d4af37;
+  --primary-dark: #b8941f;
+  --primary-light: #f4e4a8;
+  --scrollbar-track: #f0f0f0;
+  --scrollbar-thumb: #d4af37;
+  --scrollbar-thumb-hover: #b8941f;
+}
+
+/* Base container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  /* Universal overflow handling */
+  overflow: auto;
+}
+
+/* WebKit scrollbar styling (Chrome, Safari, Edge, Opera) */
+.container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 4px;
+  margin: 4px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+  border: 2px solid var(--scrollbar-track);
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+#extraInfo::-webkit-scrollbar {
+  width: 6px;
+}
+
+#extraInfo::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 3px;
+}
+
+#extraInfo::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+.chakras-grid::-webkit-scrollbar {
+  height: 4px;
+}
+
+.chakras-grid::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 0 10px;
+}
+
+.chakras-grid::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 2px;
+}
+
+/* Mobile scrollbar adjustments */
+@media (max-width: 768px) {
+  .container::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+/* Print styles - hide custom scrollbars */
+@media print {
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .container {
+    overflow: visible;
+  }
+}

@@ -1,0 +1,80 @@
+/* Cross-Browser Scrollbar Styling */
+
+/* Universal scrollbar styles that work in all browsers */
+
+/* WebKit browsers (Chrome, Safari, Edge, Opera) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary, #d4af37);
+  border-radius: 4px;
+  border: 2px solid #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark, #b8941f);
+}
+
+::-webkit-scrollbar-corner {
+  background: #f0f0f0;
+}
+
+/* Firefox (limited support - will be ignored by other browsers) */
+
+/* Fallback for browsers that don't support custom scrollbars */
+.container {
+  /* This ensures scrollbars are at least visible */
+  overflow: auto;
+}
+
+/* Specific container scrollbar styles */
+
+
+.chakras-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.chakras-grid::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+.chakras-grid::-webkit-scrollbar-thumb {
+  background: var(--primary, #d4af37);
+}
+
+/* Mobile-optimized scrollbars */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  ::-webkit-scrollbar-track {
+    background: #ffffff;
+    border: 1px solid #000000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #000000;
+    border: 1px solid #ffffff;
+  }
+
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  ::-webkit-scrollbar-thumb {
+    transition: none;
+  }
+}

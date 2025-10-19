@@ -1,0 +1,80 @@
+/* Browser-specific enhancements using body classes */
+
+/* Safari enhancements */
+body.browser-safari .container {
+  /* Safari-specific optimizations */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Universal focus styles that work in all browsers */
+button:focus,
+input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Fallback for browsers that don't support :focus-visible */
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Enhanced button states for all browsers */
+.calculate-btn:active,
+.export-btn:active,
+.file-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Universal disabled state */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Universal loading state */
+.loading {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #f0f0f0, #e0e0e0, #f0f0f0);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+@keyframes loading-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Universal responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .input-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+}
