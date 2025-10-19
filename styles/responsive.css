@@ -1,48 +1,62 @@
-/* Enhanced Responsive Design */
+/* Responsive Design */
 @media (max-width: 768px) {
   body {
-    padding: 15px;
+    padding: var(--space-md);
   }
 
   .container {
-    padding: 30px 20px;
-    margin: 10px;
+    padding: var(--space-xl);
+    margin: var(--space-md);
     border-radius: 12px;
   }
 
   h1 {
-    font-size: 2rem;
-    margin-bottom: 30px;
+    margin-bottom: var(--space-xl);
   }
 
   h2 {
+    margin: var(--space-xl) 0 var(--space-lg);
     font-size: 1.3rem;
-    margin: 30px 0 20px 0;
-  }
-
-  .input-group {
-    grid-template-columns: 1fr;
-    gap: 15px;
   }
 
   .input-section,
   .file-section {
-    padding: 20px;
+    padding: var(--space-lg);
+  }
+
+  .input-group {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
   }
 
   .file-upload {
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
+    gap: var(--space-md);
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .calculate-btn,
+  .save-btn,
+  .export-btn {
+    width: 100%;
+    margin: var(--space-sm) 0;
+  }
+
+  .export-buttons {
+    flex-direction: column;
   }
 
   .chakras-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: var(--space-lg);
   }
 
   .chakra-card {
-    padding: 20px;
+    padding: var(--space-lg);
   }
 
   .chakra-circle {
@@ -50,28 +64,15 @@
     height: 80px;
     font-size: 1.3rem;
   }
-
-  .calculate-btn,
-  .save-btn,
-  .export-btn {
-    width: 100%;
-    margin: 8px 0;
-    font-size: 1rem;
-    padding: 14px 20px;
-  }
-
-  .export-section {
-    text-align: left;
-  }
 }
 
 @media (max-width: 480px) {
   body {
-    padding: 10px;
+    padding: var(--space-sm);
   }
 
   .container {
-    padding: 20px 15px;
+    padding: var(--space-lg);
   }
 
   h1 {
@@ -84,20 +85,19 @@
 
   .input-section,
   .file-section {
-    padding: 15px;
+    padding: var(--space-md);
   }
 
   input {
     padding: 12px 14px;
-    font-size: 16px;
   }
 
   .file-format-info {
-    padding: 15px;
+    padding: var(--space-md);
   }
 
   .file-format-info ul {
-    margin-left: 15px;
+    margin-left: var(--space-lg);
   }
 
   .chakra-circle {
@@ -111,14 +111,14 @@
   }
 }
 
-/* Landscape orientation */
+/* Landscape orientation for mobile */
 @media (max-height: 500px) and (orientation: landscape) {
   body {
-    padding: 10px;
+    padding: var(--space-sm);
   }
 
   .container {
-    padding: 20px;
+    padding: var(--space-lg);
   }
 
   .input-group {
@@ -130,6 +130,7 @@
 @media (prefers-contrast: high) {
   .container {
     border: 2px solid var(--text-primary);
+    background: white;
   }
 
   input {
