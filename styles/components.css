@@ -1,0 +1,253 @@
+/* Component Styles */
+
+/* Form Elements */
+label {
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+input {
+  padding: 14px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: var(--border-radius-sm);
+  font-size: 16px;
+  background: var(--card-bg);
+  transition: var(--transition);
+  font-family: inherit;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  background: #fffdf7;
+}
+
+/* Buttons */
+button {
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.calculate-btn,
+.save-btn,
+.export-btn,
+.file-btn {
+  padding: 16px 32px;
+  background: var(--primary);
+  color: var(--text-light);
+  font-size: 1.1rem;
+  min-height: 54px;
+}
+
+.calculate-btn:hover,
+.export-btn:hover,
+.file-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.save-btn:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.save-btn:not(:disabled):hover {
+  background: var(--success);
+}
+
+/* File Upload */
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-name {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.file-format-info {
+  background: var(--card-bg);
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-sm);
+  border-left: 4px solid var(--primary);
+}
+
+.file-format-info ul {
+  margin-left: var(--space-xl);
+  color: var(--text-secondary);
+}
+
+.file-format-info li {
+  margin-bottom: var(--space-md);
+  line-height: 1.5;
+}
+
+/* Loading State */
+.loading {
+  display: none;
+  text-align: center;
+  color: var(--primary);
+  font-size: 1.1rem;
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg);
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Chakra Grid */
+.chakras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xxl);
+}
+
+.chakra-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border: 1px solid #f8f9fa;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.chakra-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.chakra-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, transparent 100%);
+}
+
+.chakra-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-weight: bold;
+  margin: 0 auto var(--space-lg);
+  font-size: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+}
+
+.chakra-circle:hover {
+  transform: scale(1.05);
+}
+
+/* Chakra Colors */
+.m1 {
+  background: #e74c3c;
+} /* Муладхара */
+.m2 {
+  background: #e67e22;
+} /* Свадхистана */
+.m3 {
+  background: #f1c40f;
+  color: var(--text-primary);
+} /* Манипура */
+.m4 {
+  background: #2ecc71;
+} /* Анахата */
+.m5 {
+  background: #3498db;
+} /* Вишудха */
+.m6 {
+  background: #9b59b6;
+} /* Аджна */
+.m7 {
+  background: #34495e;
+} /* Сахасрара */
+
+.chakra-label {
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.chakra-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Extra Info Section */
+.extra-info {
+  border: 2px solid var(--primary);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-xl);
+  margin-top: var(--space-lg);
+  background: var(--card-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Messages */
+.message {
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--border-radius-sm);
+  margin: var(--space-md) 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.success {
+  background: var(--success);
+  color: var(--text-light);
+}
+.error {
+  background: var(--danger);
+  color: var(--text-light);
+}
+.warning {
+  background: var(--warning);
+  color: var(--text-primary);
+}
+.info {
+  background: var(--info);
+  color: var(--text-light);
+}

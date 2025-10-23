@@ -1,0 +1,113 @@
+/* Cross-Browser Text Size Control - No text-size-adjust */
+
+/* Universal font size control that works in all browsers */
+html {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body {
+  /* Ensure base font size is maintained */
+  font-size: 1rem;
+
+  /* Improve text rendering */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile-specific font size control */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px; /* Maintain consistent base size */
+  }
+
+  /* Critical: Prevent zoom on input focus in iOS */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important; /* Prevents iOS zoom */
+  }
+
+  /* Ensure buttons maintain readable size */
+  button {
+    font-size: 16px;
+    min-height: 44px; /* Minimum touch target size */
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* iOS-specific text rendering optimizations */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px !important; /* Crucial for iOS to prevent zoom */
+  }
+}
+
+/* Firefox specific adjustments */
+@url-prefix() {
+  body {
+    /* Firefox-specific text rendering */
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Landscape orientation fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+  html {
+    /* Maintain font size in landscape */
+    font-size: 16px;
+  }
+
+  body {
+    /* Slightly smaller text in landscape to fit more content */
+    font-size: 0.9rem;
+  }
+}
+
+/* High DPI screen adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    /* Improve text rendering on high DPI screens */
+    text-rendering: geometricPrecision;
+  }
+}
+
+/* Print styles */
+@media print {
+  html {
+    font-size: 12pt;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  body {
+    font-weight: bold;
+  }
+
+  input,
+  button {
+    border: 2px solid currentColor;
+  }
+}

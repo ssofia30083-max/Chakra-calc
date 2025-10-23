@@ -1,0 +1,43 @@
+/* Safari-specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* Safari 10.1+ */
+
+  /* Fix for backdrop-filter performance */
+  .container {
+    isolation: isolate; /* Creates new stacking context */
+  }
+
+  /* Fix for button gradients */
+  .calculate-btn,
+  .save-btn,
+  .export-btn {
+    background-image: linear-gradient(to bottom, var(--primary), #b8941f);
+  }
+
+  /* Fix for input focus in Safari */
+  input:focus {
+    background-color: rgba(212, 175, 55, 0.05);
+  }
+
+  /* Better blur performance */
+  .container {
+    -webkit-transform: translateZ(0); /* Safari */
+    transform: translateZ(0); /* Standard */
+  }
+}
+
+/* Fix for iOS Safari viewport height */
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Print styles for Safari */
+@media print {
+  .container {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    background: white !important;
+  }
+}

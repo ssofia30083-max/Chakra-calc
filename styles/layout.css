@@ -1,0 +1,84 @@
+/* Layout Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--container-bg);
+  border-radius: var(--border-radius);
+  padding: var(--space-xxl);
+  box-shadow: var(--shadow-lg);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Header Styles */
+h1 {
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: var(--space-xxl);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: var(--text-primary);
+  margin: var(--space-xxl) 0 var(--space-lg);
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: var(--space-sm);
+}
+
+h3 {
+  color: var(--text-secondary);
+  margin: var(--space-lg) 0 var(--space-md);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Section Layouts */
+.input-section,
+.file-section {
+  background: var(--section-bg);
+  padding: var(--space-xl);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: var(--space-xl);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: var(--shadow-sm);
+}
+
+.input-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-buttons {
+  display: flex;
+  gap: var(--space-md);
+  margin: var(--space-xl) 0;
+  flex-wrap: wrap;
+}
+
+.export-section {
+  text-align: center;
+  margin-top: var(--space-xxl);
+  padding-top: var(--space-xl);
+  border-top: 2px solid #ecf0f1;
+}
+
+.export-buttons {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-lg);
+}

@@ -1,0 +1,187 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: var(--space-md);
+  }
+
+  .container {
+    padding: var(--space-xl);
+    margin: var(--space-md);
+    border-radius: 12px;
+  }
+
+  h1 {
+    margin-bottom: var(--space-xl);
+  }
+
+  h2 {
+    margin: var(--space-xl) 0 var(--space-lg);
+    font-size: 1.3rem;
+  }
+
+  .input-section,
+  .file-section {
+    padding: var(--space-lg);
+  }
+
+  .input-group {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .file-upload {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .calculate-btn,
+  .save-btn,
+  .export-btn {
+    width: 100%;
+    margin: var(--space-sm) 0;
+  }
+
+  .export-buttons {
+    flex-direction: column;
+  }
+
+  .chakras-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .chakra-card {
+    padding: var(--space-lg);
+  }
+
+  .chakra-circle {
+    width: 80px;
+    height: 80px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: var(--space-sm);
+  }
+
+  .container {
+    padding: var(--space-lg);
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .input-section,
+  .file-section {
+    padding: var(--space-md);
+  }
+
+  input {
+    padding: 12px 14px;
+  }
+
+  .file-format-info {
+    padding: var(--space-md);
+  }
+
+  .file-format-info ul {
+    margin-left: var(--space-lg);
+  }
+
+  .chakra-circle {
+    width: 70px;
+    height: 70px;
+    font-size: 1.2rem;
+  }
+
+  .chakra-value {
+    font-size: 1.7rem;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    padding: var(--space-sm);
+  }
+
+  .container {
+    padding: var(--space-lg);
+  }
+
+  .input-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .container {
+    border: 2px solid var(--text-primary);
+    background: white;
+  }
+
+  input {
+    border: 2px solid var(--text-primary);
+  }
+
+  button {
+    border: 2px solid var(--text-primary);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .chakra-card:hover,
+  .chakra-circle:hover,
+  button:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    padding: 0;
+  }
+
+  .container {
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+    margin: 0;
+    padding: 20px;
+  }
+
+  button,
+  .file-section,
+  .export-section {
+    display: none !important;
+  }
+
+  .chakra-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+  }
+}

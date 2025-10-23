@@ -1,0 +1,114 @@
+/* Cross-Browser Theme Color Support */
+
+:root {
+  --primary: #d4af37;
+  --primary-dark: #b8941f;
+  --primary-light: #f4e4a8;
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --container-bg: rgba(255, 255, 255, 0.95);
+  --text-primary: #2c3e50;
+  --text-secondary: #5d6d7e;
+}
+
+/* Universal theme application that works in all browsers */
+body {
+  /* Theme colors applied via CSS - works everywhere */
+  background: var(--background);
+  color: var(--text-primary);
+}
+
+.container {
+  background: var(--container-bg);
+  border-left: 4px solid var(--primary);
+  border-right: 4px solid var(--primary);
+}
+
+/* Apply theme to interactive elements */
+button,
+.calculate-btn,
+.save-btn,
+.export-btn,
+.file-btn {
+  background-color: var(--primary);
+  color: white;
+  border: 2px solid var(--primary);
+}
+
+button:hover,
+.calculate-btn:hover,
+.export-btn:hover,
+.file-btn:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+input:focus-visible,
+.calculate-btn:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Firefox specific enhancements */
+@url-prefix() {
+  .container {
+    /* Firefox doesn't support theme-color, so we emphasize borders */
+    border-left: 6px solid var(--primary);
+    border-right: 6px solid var(--primary);
+  }
+}
+
+/* Safari specific enhancements */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .container {
+      /* Safari-specific theme enhancements */
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+    }
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary: #000000;
+    --text-primary: #000000;
+  }
+
+  .container {
+    border: 2px solid var(--primary);
+    background: white;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #f1c40f;
+    --primary-dark: #f39c12;
+    --container-bg: rgba(44, 62, 80, 0.95);
+    --text-primary: #ecf0f1;
+    --text-secondary: #bdc3c7;
+  }
+
+  .container {
+    border-left: 4px solid var(--primary);
+    border-right: 4px solid var(--primary);
+  }
+}
+
+/* Print styles */
+@media print {
+  .container {
+    border: none;
+    background: white;
+  }
+
+  button {
+    background: #cccccc !important;
+    color: black !important;
+    border: 1px solid #000000 !important;
+  }
+}

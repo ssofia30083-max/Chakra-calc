@@ -1,0 +1,159 @@
+/* Cross-Browser Theme Color Support - Universal Approach */
+
+/* Universal CSS Variables for Theme */
+:root {
+  --primary: #d4af37;
+  --primary-dark: #b8941f;
+  --primary-light: #f4e4a8;
+  --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --container-bg: rgba(255, 255, 255, 0.95);
+  --text-primary: #333;
+  --text-secondary: #555;
+}
+
+/* Universal styles that work in all browsers */
+body {
+  background: var(--background-gradient);
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  background: var(--container-bg);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Universal border for visual consistency */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Universal button styles */
+.calculate-btn,
+.save-btn,
+.export-btn,
+.file-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Universal hover effects */
+.calculate-btn:hover,
+.export-btn:hover,
+.file-btn:hover,
+.save-btn:not(:disabled):hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Universal focus styles for accessibility */
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Universal scrollbar styling (where supported) */
+/* This will be ignored by browsers that don't support it */
+/* Webkit scrollbar (Chrome, Safari, Edge, Opera) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .container {
+    border: 2px solid var(--text-primary);
+    background: white;
+  }
+
+  button {
+    border: 2px solid var(--text-primary);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .calculate-btn:hover,
+  .export-btn:hover,
+  .file-btn:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --container-bg: rgba(45, 45, 45, 0.95);
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --background-gradient: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  }
+
+  .input-section,
+  .file-section,
+  .chakra-card,
+  #extraInfo {
+    background: #2d2d2d;
+    color: var(--text-primary);
+    border: 1px solid #444;
+  }
+
+  input {
+    background: #333;
+    color: var(--text-primary);
+    border: 2px solid #555;
+  }
+
+  input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+  }
+}
+
+/* Print styles */
+@media print {
+  .container {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+  }
+
+  button {
+    display: none !important;
+  }
+}
